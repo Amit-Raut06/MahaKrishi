@@ -1,0 +1,215 @@
+<html>
+{% load static %}
+<head>
+
+    <style>
+        h2,
+        .gle {
+            font-family: Sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: bold;
+            color: blue;
+            text-align: center;
+            text-decoration: underline
+        }
+
+        .gle {
+            margin-bottom: 10px;
+            ;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        table {
+            font-family: verdana;
+            color: black;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: bold;
+            background: white;
+            border-collapse: collapse;
+            border: 4px solid #000000;
+            border-style: soild;
+
+        }
+
+        table.inner {
+            border: 10px
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number] {
+            width: 50%;
+            padding: 6px 12px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+        input[type=submit],
+        input[type=reset] {
+            width: 15%;
+            padding: 8px 12px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            top: 0px !important;
+            background-image: url("{% static 'img/w.jpg' %}");
+
+             background-size: 100% 100%;
+        }
+
+        #goog-gt-tt,
+        .goog-tooltip skiptranslate {
+            display: none !important;
+            top: 0px !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner,
+        .activity-root,
+        .status-message,
+        .started-activity-container {
+            display: hide !important;
+            visibility: hidden !important;
+        }
+
+        .goog-text-highlight {
+            background-color: white !important;
+            box-shadow: none !important;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <div id="google_translate_element"></div>
+    </center>
+    <form action="{% url 'user' %}" method="post">
+        {% csrf_token %}
+        <table align="center" cellpadding="10">
+            <!--------------------- First Name ------------------------------------------>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="FirstName" maxlength="50" />(Max 50 Characters Allowed)
+
+                </td>
+            </tr>
+            <!------------------------ Last Name --------------------------------------->
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="LastName" maxlength="50" />(Max 50 Characters Allowed)
+
+                </td>
+            </tr>
+            <!-------------------------- Email ID ------------------------------------->
+            <tr>
+                <td>Email ID</td>
+                <td><input type="email" name="EmailID" maxlength="100" /></td>
+            </tr>
+
+            <!---------------------- Gender ------------------------------------->
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="Gender" value="Male" />
+                    Male
+                    <input type="radio" name="Gender" value="Female" />
+                    Female
+                </td>
+            </tr>
+            <!--------------------------Region----------------------------------->
+            <tr>
+                <td>Select Region</td>
+                <td>
+                    <select name="Region" id="Region" onchange="change_soil()">
+                        <option value="">--Please choose region--</option>
+                        <option value="Kolhapur">Kolhapur</option>
+                        <option value="Solapur">Solapur</option>
+                    </select><br><br>
+                </td>
+            </tr>
+
+
+            <!--------------------------Soiltype----------------------------------->
+            <tr>
+                <td>Select soil type</td>
+                <td>
+
+                    <select disabled name="soil_type" id="soil_type">
+                        <option value="">-- Select soil --</option>
+                    </select><br><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>On going season</td>
+                <td>
+                    <select style="width:150px" name="sub_type" id="sub_type">
+                        <option value="">-- Select season --</option>
+                        <option value="Rabi">Rabi</option>
+                        <option value="Kharib">Kharib</option>
+                    </select>
+                </td>
+            </tr>
+
+
+
+            <!----------------------- Submit and Reset ------------------------------->
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit" maxlength="50" />
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("gelement")
+        }
+
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "en,hi,mr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+
+    <script>
+        function change_soil() {
+            var s1 = document.getElementById('Region');
+            var s2 = document.getElementById('soil_type');
+            if (s1.value == 'Kolhapur') {
+                s2.disabled = false;
+                var ops = ['R Brown(EW)', 'R Brown(LW)'];
+            }
+            else if (s1.value == 'Solapur') {
+                s2.disabled = false;
+                var ops = ['M Brown(EW)', 'M Brown(LW)', 'D Black(EW)', 'D Black(LW)'];
+            }
+            else s2.disabled = true;
+
+            ss = '<option value=""> --select soil type-- </option>';
+
+            for (var i in ops) {
+                ss = ss + '<option value="'+ ops[i] + '">' + ops[i] + "</option>";
+            }
+            s2.innerHTML = ss;
+        }
+
+
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+</body>
+
+</html>

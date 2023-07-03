@@ -1,0 +1,135 @@
+
+<html>
+<head>
+
+<style>
+
+h2{
+ font-family: Sans-serif;
+ font-size: 24px;
+ font-style: normal;
+ font-weight: bold;
+ color: blue;
+ text-align: center;
+ text-decoration: underline
+}
+table{
+ font-family: verdana;
+ color:white;
+ font-size: 16px;
+ font-style: normal;
+ font-weight: bold;
+
+ border-collapse: collapse;
+ border: 4px solid #000000;
+ border-style:solid;
+
+}
+table.inner{
+ border: 10px
+}
+input[type=text], input[type=email], input[type=number]{
+ width: 50%;
+ padding: 6px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+input[type=submit], input[type=reset]{
+ width: 15%;
+ padding: 8px 12px;
+ margin: 5px 0;
+ box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+<h2>User Fram Registration Form Using Table in HTML</h2>
+<table align="center" cellpadding = "10">
+<!--------------------- First Name ------------------------------------------>
+<tr>
+<td>First Name</td>
+<td><input type="text" name="FirstName" maxlength="50" />(Max 50 Characters Allowed)
+
+</td>
+</tr>
+<!------------------------ Last Name --------------------------------------->
+<tr>
+<td>Last Name</td>
+<td><input type="text" name="LastName" maxlength="50"/>(Max 50 Characters Allowed)
+
+</td>
+</tr>
+<!-------------------------- Email ID ------------------------------------->
+<tr>
+<td>Email ID</td>
+<td><input type="email" name="EmailID" maxlength="100" /></td>
+</tr>
+
+<!---------------------- Gender ------------------------------------->
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" name="Gender" value="Male" />
+Male
+<input type="radio" name="Gender" value="Female" />
+Female
+</td>
+</tr>
+<!--------------------------Region----------------------------------->
+<tr>
+<td>Select Region</td>
+<td>
+<select name="Region" id="Region" onchange="soilop(this.id, 'Solapur soil type')">
+    <option value="">--Please choose an option--</option>
+    <option value="Kolhapur">Kolhapur</option>
+    <option value="Solapur">Solapur</option>
+    </select><br><br>
+</td>
+</tr>
+
+
+<!--------------------------Soiltype----------------------------------->
+<tr>
+<td>Select soil type</td>
+<td>
+
+<select name="Solapur soil type" id="Solapur soil type" >
+
+    <option value="">-- Select soil --</option>
+    <option value="M Brown(EW)">Solapur</option>
+    <option value="M Brown(LW)">Kolhapur</option>
+    <option value="">-- Solapur soil type--</option>
+    <option value="M Brown(EW)">M Brown(EW)</option>
+    <option value="M Brown(LW)">M Brown(LW)</option>
+    <option value="D Black(EW)">D Brown(EW)</option>
+    <option value="D Black(LW)">D Brown(LW)</option>
+</select><br><br>
+</td>
+</tr>
+
+<tr>
+<td></td>
+<td>
+<select name="Kolhapur soil type" id="Kolhapur soil type">
+    <option value="">--Kohlapur soil type--</option>
+    <option value="M Brown(EW)">M Brown(EW)</option>
+    <option value="R Brown(LW)">R Brown(LW)</option>
+</select>
+</td>
+</tr>
+
+
+
+
+<!----------------------- Submit and Reset ------------------------------->
+<tr>
+<td colspan="2" align="center">
+<input type="submit" value="Submit" maxlength="50"/>
+<input type="reset" value="Reset">
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

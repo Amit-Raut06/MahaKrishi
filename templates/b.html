@@ -1,0 +1,141 @@
+<html>
+
+<head>
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        button {
+            background-color: #4CAF50;
+            width: 25%;
+            padding: 15px;
+            color: black;
+            border: none;
+            float: center;
+            font-size: 15px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+        input[type=email],
+        input[type=text] , input[type=password] {
+            width: 50%;
+            font-size: 18px;
+            margin: 8px 0px;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+
+        input[type=radio] {
+            height: 18px;
+            width: 18px;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            padding: 50px;
+            background-color: white;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 10%;
+            border-radius: 50%;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        #goog-gt-tt,
+        .goog-tooltip skiptranslate {
+            display: none !important;
+            top: 0px !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner,
+        .activity-root,
+        .status-message,
+        .started-activity-container {
+            display: hide !important;
+            visibility: hidden !important;
+        }
+
+        .goog-text-highlight {
+            background-color: white !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+
+        <div id="google_translate_element"></div>
+    </center>
+    <form action="#" method="post">
+        {% csrf_token %}
+        {% load static %}
+        <center>
+            <div class="container">
+                <div class="imgcontainer">
+
+                    <img src='{% static "img/avatar_img2.png" %}' alt="AVATAR">
+
+                </div>
+                <form action="signup" method="POST">{% csrf_token %}
+                    <label for='Username'><b>User Name : </b></label>
+                    <input type='text' placeholder="Enter your  username" name='username' required><br>
+                    <label for='First_name'><b>First Name : </b></label>
+                    <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+                    <label for='Last_name'><b>Last Name :</b></label>
+                    <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+
+                    <label for='email'><b>Email Id : </b></label>
+                    <input type="email" placeholder="Enter email" name="email_id" float="right" required><br>
+                    <label for='Password'><b>Password : </b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required><br>
+                    <button type="submit"><b>Signup</b></button><br>
+
+                    Already an account <a href="login.html"> Login </a>
+            </div>
+        </center>
+    </form>
+
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("gelement")
+        }
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "en,hi,mr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+
+    <!-- google translator -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+</body>
+
+</html>

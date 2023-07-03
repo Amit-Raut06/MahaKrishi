@@ -1,0 +1,173 @@
+<html>
+{% load static %}
+
+<head>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-image: url("{% static 'img/bg.jpg' %}");
+
+     background-size: 100% 100%;
+      top: 0px !important;
+    }
+
+    #goog-gt-tt,
+    .goog-tooltip skiptranslate {
+      display: none !important;
+      top: 0px !important;
+    }
+
+    .goog-te-banner-frame.skiptranslate,
+    .goog-te-banner,
+    .activity-root,
+    .status-message,
+    .started-activity-container {
+      display: hide !important;
+      visibility: hidden !important;
+    }
+
+    .goog-text-highlight {
+      background-color: white !important;
+      box-shadow: none !important;
+    }
+
+.first {
+margin-top: 80px;
+            font-size: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Steelfish Rg', 'helvetica neue',
+                     helvetica, arial, sans-serif;
+            font-weight: 800;
+            -webkit-font-smoothing: antialiased;
+
+            color:white;
+}
+.second
+{
+margin-top: 20px;
+            font-size: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Steelfish Rg', 'helvetica neue',
+                     helvetica, arial, sans-serif;
+            font-weight: 800;
+            -webkit-font-smoothing: antialiased;
+
+
+            color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MahaKrishi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{https://weatherwidget.io/}">Check Weather <span class="sr-only"></span></a>
+          {% if user.is_authenticated %}
+          <a href="app4/logout">Logout</a>
+          {% else %}
+
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="app2/signup">Signup</a>
+
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="app3/login">Login</a>
+        </li>
+        {% endif %}
+
+
+
+
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="marathi">marathi</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+
+        <li>
+          <div id="google_translate_element"></div>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <script>
+    function loadGoogleTranslate() {
+      new google.translate.TranslateElement("gelement")
+    }
+  </script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "en,hi,mr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+  </script>
+
+  <!-- Bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- google translator -->
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+<div class="first"><center>What is crop rotation?</center><br>
+Crop rotation is the practice of planting different crops sequentially on the same plot of land to improve soil health,optimize nutrients in the soil, and combat pest and weed pressure.
+
+For example, say a farmer has planted a field of corn. When the corn harvest is finished, he might plant beans, since corn consumes a lot of nitrogen and beans return nitrogen to the soil.
+
+A simple rotation might involve two or three crops, and complex rotations might incorporate a dozen or more.</div>
+<div class="second"><center>WHY DOES IT MATTER?</center><br>
+  Different plants have different nutritional needs and are susceptible to different pathogens and pests.
+
+If a farmer plants the exact same crop in the same place every year, as is common in conventional farming, she continually draws the same nutrients out of the soil. Pests and diseases happily make themselves a permanent home as their preferred food source is guaranteed. With monocultures like these, increasing levels of chemical fertilizers and pesticides become necessary to keep yields high while keeping bugs and disease at bay.
+
+Crop rotation helps return nutrients to the soil without synthetic inputs.
+
+The practice also works to interrupt pest and disease cycles, improve soil health by increasing biomass from different crops’ root structures, and increase biodiversity on the farm. Life in the soil thrives on variety, and beneficial insects and pollinators are attracted to the variety above ground, too.</div>
+
+<a class="weatherwidget-io" href="https://forecast7.com/en/16d7074d24/kolhapur/" data-label_1="KOLHAPUR" data-icons="Climacons Animated" data-theme="pure" >KOLHAPUR</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+
+<a class="weatherwidget-io" href="https://forecast7.com/en/17d6675d91/solapur/" data-label_1="SOLAPUR" data-icons="Climacons Animated" data-theme="pure" >SOLAPUR</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+ 
+</script>
+</script>
+</script>
+</script>
+</script>
+</script>
+</body>
+
+</html>

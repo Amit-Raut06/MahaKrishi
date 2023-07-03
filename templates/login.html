@@ -1,0 +1,130 @@
+<html>
+{% load static %}
+
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+        }
+
+        button {
+            background-color: #4CAF50;
+            width: 25%;
+            padding: 15px;
+            color: black;
+            border: none;
+            float: center;
+            font-size: 18px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        form {
+            border: 3px solid #f1f1f1;
+        }
+
+      input[type=text], input[type=password] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 4px solid green;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+ button:hover {
+        opacity: 0.7;
+        }
+
+        button:hover {
+            opacity: 0.7;
+
+        }
+
+        .container {
+            padding: 80px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 20%;
+            border-radius: 20%;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        #goog-gt-tt,
+        .goog-tooltip skiptranslate {
+            display: none !important;
+            top: 0px !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner,
+        .activity-root,
+        .status-message,
+        .started-activity-container {
+            display: hide !important;
+            visibility: hidden !important;
+        }
+
+        .goog-text-highlight {
+            background-color: white !important;
+            box-shadow: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+
+        <div id="google_translate_element"></div>
+    </center>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <center>
+            <div class="container">
+                <div class="imgcontainer">
+                    <img src="{% static 'img/img1.jpg' %}" alt="Avatar" class="avatar">
+                </div>
+                <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+                    <center><button type="submit">Login</button></center>
+                Don't have accounct <a href="http://localhost:8000/signup/"> register </a>
+            </div>
+        </center>
+    </form>
+
+    <script>
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement("gelement")
+        }
+    </script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "en,hi,mr", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+
+</body>
+
+</html>
